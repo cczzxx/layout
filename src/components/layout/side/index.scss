@@ -1,0 +1,127 @@
+$prefix: layout-demo-side;
+$length: 40px;
+@mixin center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.#{$prefix} {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  &-nav {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+  }
+  &-switch {
+    position: absolute;
+    z-index: 10;
+    top: 40px;
+    left: 220px;
+    width: $length + 2px;
+    height: $length + 2px;
+    &-outside {
+      width: $length;
+      height: $length;
+      @include center;
+      border-radius: 100%;
+      border: 1px solid #ccc;
+    }
+    &-inside {
+      width: $length - 6px;
+      height: $length - 6px;
+      @include center;
+      border-radius: 100%;
+      border: 1px solid #ccc;
+      &:hover {
+        background: blue;
+      }
+    }
+  }
+  @keyframes clooseSwitch {
+    from {
+      left: 220px;
+    }
+    to {
+      left: 40px;
+    }
+  }
+  @keyframes openSwitch {
+    from {
+      left: 40px;
+    }
+    to {
+      left: 220px;
+    }
+  }
+  @keyframes clooseNav {
+    from {
+      width: 240px;
+    }
+    to {
+      width: 0;
+    }
+  }
+  @keyframes openNav {
+    from {
+      top: 0;
+      height: 100%;
+      width: 0;
+    }
+    to {
+      top: 0;
+      height: 100%;
+      width: 240px;
+    }
+  }
+  @keyframes openNavHalf {
+    from {
+      top: 80px;
+      height: 60%;
+      width: 0;
+    }
+    to {
+      top: 80px;
+      height: 60%;
+      width: 400px;
+    }
+  }
+  @keyframes clooseNavHalf {
+    from {
+      top: 80px;
+      height: 60%;
+      width: 400px;
+    }
+    to {
+      top: 80px;
+      height: 60%;
+      width: 0;
+    }
+  }
+  @keyframes halfToAll {
+    from {
+      top: 80px;
+      height: 60%;
+      width: 400px;
+    }
+    to {
+      top: 0;
+      height: 100%;
+      width: 240px;
+    }
+  }
+}

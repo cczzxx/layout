@@ -1,0 +1,38 @@
+.layout-demo-main {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 240px);
+  height: 100%;
+  background: #fff;
+  &-container {
+    overflow-y: auto;
+    height: 100%;
+    width: 600px;
+    background: green;
+    &::-webkit-scrollbar { 
+      width: 0 !important;
+    }
+    p {
+      height: 300px;
+    }
+  }
+  @keyframes bigger {
+    from {
+      width: calc(100% - 240px);
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes smaller {
+    from {
+      width: 100%;
+    }
+    to {
+      width: calc(100% - 240px);
+    }
+  }
+}
