@@ -3,14 +3,16 @@ import './index.scss';
 
 const Layout = ({ ifBigger }) => {
   const [style, setStyle] = useState({});
+  const [flag, setFlag] = useState(false);
 
   useEffect(() => {
     if (ifBigger) {
+      setFlag(true);
       setStyle({
         animation: 'bigger 1.2s forwards',
       });
     } else {
-      setStyle({
+      flag && setStyle({
         animation: 'smaller 1.2s forwards',
       });
     }
